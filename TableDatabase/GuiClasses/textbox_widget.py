@@ -1,9 +1,10 @@
 from PyQt5 import QtWidgets,QtCore
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import pyqtSignal, QObject
 
 
 class TextBoxesGroupbox(QtWidgets.QGroupBox):
-    ALL_TXT_FILLED = QtCore.pyqtSignal(bool)
+    TEXT_FILLED = pyqtSignal(bool)
 
     def __init__(self):
         self.text_boxes = []
@@ -25,15 +26,13 @@ class TextBoxesGroupbox(QtWidgets.QGroupBox):
             layout.addWidget(lbl, row, 0)
             layout.addWidget(textbox, row, 1)
 
-        #for textbox in self.text_boxes:
-            #textbox.editingFinished.connect(self.validate_text_boxes)
+        for textbox in self.text_boxes:
+            textbox.textChanged.connect(self.validate_text_boxes)
+
         self.setFixedWidth(450)
+        self.setFixedHeight(500)
         self.setLayout(layout)
 
     def validate_text_boxes(self):
-        if all(textbox.text() for textbox in self.textboxes):
-            print('working')
-            self.emit_all_textboxes_filled()
-
-    def emit_all_text_boxes_filled(self):
-        self.ALL_TXT_FILLED.emit(True)
+        var = all(textbox.text() for textbox in self.text_boxes)
+        self.TEXT_FILLED.emit(var)

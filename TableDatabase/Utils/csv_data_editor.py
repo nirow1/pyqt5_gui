@@ -4,7 +4,7 @@ import csv
 
 def get_people_list():
     data = []
-    with open('C:\\Users\\Radan Krch\\Desktop\\github_projects\\TableWindow\\TableDatabase\\Data\\people.csv', 'r')as file:
+    with open('C:/Users/Radan Krch/Desktop/github_projects/pyqt5_gui/TableDatabase/Data/people.csv', 'r')as file:
         reader = csv.reader(file)
         next(reader)
         for row in reader:
