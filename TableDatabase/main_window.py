@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets,QtCore
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
 from GuiClasses.textbox_widget import TextBoxesGroupbox
 from GuiClasses.table_view import PeopleView
@@ -23,7 +23,6 @@ class MainWindow(QMainWindow):
 
         self.save_button.setDisabled(True)
         self.save_button.setFixedSize(150, 50)
-
         self.update_button.setFixedSize(150, 50)
 
         layout.addWidget(self.text_boxes, 0, 0)

@@ -1,9 +1,9 @@
-from PyQt5 import QtWidgets,QtCore
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import pyqtSignal, QObject
+from PyQt5.QtCore import pyqtSignal
 
 
-class TextBoxesGroupbox(QtWidgets.QGroupBox):
+class TextBoxesGroupbox(QGroupBox):
     TEXT_FILLED = pyqtSignal(bool)
 
     def __init__(self):
